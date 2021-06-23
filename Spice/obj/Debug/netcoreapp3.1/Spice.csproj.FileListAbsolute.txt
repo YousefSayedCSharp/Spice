@@ -133,6 +133,7 @@ C:\Users\Farah\source\repos\Spice\Spice\bin\Debug\netcoreapp3.1\runtimes\win-x86
 C:\Users\Farah\source\repos\Spice\Spice\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Farah\source\repos\Spice\Spice\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Farah\source\repos\Spice\Spice\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.csproj.AssemblyReference.cache
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.AssemblyInfoInputs.cache
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.AssemblyInfo.cs
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.csproj.CoreCompileInputs.cache
@@ -149,6 +150,9 @@ C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.RazorCoreG
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\CategoryForm.cshtml.g.cs
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Details.cshtml.g.cs
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Index.cshtml.g.cs
+C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Coupons\Create.cshtml.g.cs
+C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Coupons\Index.cshtml.g.cs
+C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\MenuItems\Details.cshtml.g.cs
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\MenuItems\Index.cshtml.g.cs
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\MenuItems\MenuItemForm.cshtml.g.cs
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\SubCategories\Details.cshtml.g.cs
@@ -218,5 +222,4 @@ C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.csproj.Cop
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.dll
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.pdb
 C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.genruntimeconfig.cache
-C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.csproj.AssemblyReference.cache
-C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\MenuItems\Details.cshtml.g.cs
+C:\Users\Farah\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Coupons\details.cshtml.g.cs

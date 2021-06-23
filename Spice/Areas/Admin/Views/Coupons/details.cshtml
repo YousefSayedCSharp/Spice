@@ -1,0 +1,58 @@
+﻿@model Spice.Models.Coupon
+
+@{
+    ViewData["Title"] = "details";
+}
+
+<div class="border" style="background-color:white;border:solid 1px #ddd;border-radius:10px;padding:30px;margin-bottom:30px;">
+
+    <h1>details</h1>
+
+        <h4>Coupon</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CouponType)
+            </dt>
+            <dd class="col-sm-10">
+                <select hidden disabled id="ddlCoupons" asp-for="CouponType" asp-items="@Html.GetEnumSelectList<Coupon.ECouponType>()"></select>
+                <label id="lbl"></label>
+                <script>
+                    document.getElementById('lbl').innerHTML = document.getElementById('ddlCoupons').innerHTML;
+                </script>
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Discount)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Discount)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.MinimumAmmount)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.MinimumAmmount)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Picture)
+            </dt>
+            <dd class="col-sm-10">
+                <img src="data:image/*;base64,@(Convert.ToBase64String(Model.Picture))" width="250" height="250" />
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.IsActive)
+            </dd>
+        </dl>
+    <div class="mt-2 text-center">
+        <partial name="_EditAndBackToListButtonsPartial" model="@(new object[] { Model.Id,ViewData["CreateEditButtons"]})" />
+    </div>
+</div>
