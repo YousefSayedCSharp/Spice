@@ -1,0 +1,102 @@
+﻿@model SubCategoryAndCategoryViewModel
+
+@{
+    string CreateOrEdit = Model.SubCategory.Id > 0 ? "Edit Sub Category " + Model.SubCategory.Name + "." : "Create Sub Category";
+}
+
+@{
+    ViewData["Title"] = CreateOrEdit;
+}
+
+<div class="border" style="background-color:white;border:solid 1px #ddd;border-radius:10px;padding:30px;margin-bottom:30px;">
+    <h1>
+        <i class="bi <b>                            </b>i-plus"></i>
+        @(CreateOrEdit)
+    </h1>
+    <h4>
+        <partial name="_StatusMessage" model="Model.StatusMessage" />
+    </h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4 border-right">
+            <form method="post" asp-action="SubCategoryForm">
+                @if (Model.SubCategory.Id > 0)
+                {
+                    <input type="hidden" asp-for="SubCategory.Id" />
+                    <input type="hidden" asp-for="SubCategory.CategoryId" />
+                }
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="SubCategory.Id" />
+                <div class="form-group">
+                    <label asp-for="SubCategory.Name" class="control-label"></label>
+                    <input asp-for="SubCategory.Name" class="form-control" />
+                    <span asp-validation-for="SubCategory.Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SubCategory.CategoryId" class="control-label"></label>
+                    @if (Model.SubCategory.Id > 0)
+                    {
+                        <select disabled asp-for="SubCategory.CategoryId" id="ddlCategories" class="form-control"
+                                asp-items="@(new SelectList(Model.CategoriesList, "Id", "Name"))">
+                        </select>
+                    }
+                    else
+                    {
+                        <select asp-for="SubCategory.CategoryId" id="ddlCategories" class="form-control"
+                                asp-items="@(new SelectList(Model.CategoriesList, "Id", "Name"))">
+                            <option>Select Category</option>
+                        </select>
+                    }
+                    <span asp-validation-for="SubCategory.CategoryId" class="text-danger"></span>
+                </div>
+                <div class="form-group text-center">
+                    <partial name="@(Model.SubCategory.Id > 0 ? "_SaveAndBackToListButtonsPartial" : "_CreateAndBackToListButtonsPartial")" />
+
+
+                </div>
+            </form>
+        </div>
+
+        <div class="col-4 offset-1 text-dark" style="font-size:24px;">
+            <p>Exists Sub Categories</p>
+            <div id="divSubCategoriesList">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        function updateSubCategoriesList() {
+            var selectedCategories = document.getElementById("ddlCategories").value;
+            $list = $('#divSubCategoriesList');
+            $.ajax({
+                url: '/Admin/SubCategories/GetSelectedCategories/' + selectedCategories,
+                type: 'GET',
+                dataType: 'text',
+                success: function (data) {
+                    results = JSON.parse(data);
+                    $list.html('');
+                    $list.append('<ul class="list-group">')
+                    for (i in results) {
+                        $list.append('<li class="list-group-item">' + results[i].text + '</li>')
+                    }
+                    $list.append('</ul>');
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            updateSubCategoriesList();
+        });
+
+        $("#ddlCategories").on("change", function () {
+            updateSubCategoriesList();
+        });
+
+    </script>
+
+}

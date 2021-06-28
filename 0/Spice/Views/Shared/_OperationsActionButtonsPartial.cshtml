@@ -1,0 +1,15 @@
+﻿@model object[]
+
+<div class="btn btn-group" role="group">
+    <a asp-action="Details" asp-route-id="@Model[0]" class="btn btn-success text-white" title="Details">
+        <i class="bi bi-camera-reels"></i>
+    </a>
+    <a asp-action="@Model[1]" asp-route-id="@Model[0]" class="btn btn-primary text-white" title="Edit">
+        <i class="bi bi-pencil"></i>
+    </a>
+    @*<a asp-action="Delete" asp-route-id="@Model" class="btn btn-danger text-white" title="Delete">*@
+    <a href="javascript:;" class="btn btn-danger text-white js-delete" data-id="@Model[0]" title="Delete">
+        <i class="bi bi-trash"></i>
+    </a>
+</div>
+                       

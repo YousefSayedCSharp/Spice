@@ -1,8 +1,135 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IndexViewModel
+
+@{
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<br />
+<!-- start show coupons -->
+
+<div class="border row">
+    <div class="col-12">
+        @if (Model.Coupons.Any())
+        {
+            <div class="carousel" data-ride="carousel" data-interval="2500">
+                @for (int x = 0; x < Model.Coupons.Count(); x++)
+                {
+                    var base64 = Convert.ToBase64String(Model.Coupons.ToList()[x].Picture);
+                    var ImgSrc = string.Format("data:image/*;base64, {0}", base64);
+                    var couponName = Model.Coupons.ToList()[x].Name;
+
+                    <div class="carousel-item @(x==0?"active":string.Empty)">
+                        <img src="@ImgSrc" height="50" class="d-block w-100" alt="@couponName" />
+                    </div>
+                }
+
+
+
+            </div>
+
+        }
+        else
+        {
+            <div class="text-center" style="font-size:25px;">
+                <label>At this time there are no coupons</label>
+            </div>
+        }
+    </div>
 </div>
+
+<!-- end show coupons -->
+<!-- Show menu items -->
+
+<div class="container" style="background-color:white;border:solid 1px #ddd;border-radius:10px;padding:30px;margin-bottom:30px;margin-top:30px;">
+
+    <ul id="menu-filter" class="menu-filter-list list-inline text-center">
+        <li class="active btn btn-secondary ml-1 mr-1" data-filter=".AllCategories">Show All</li>
+
+        @foreach (var category in Model.Categories)
+        {
+            <li class="ml-1 mr-1" data-filter=".@category.Name.Replace(" ",string.Empty)">@category.Name</li>
+        }
+    </ul>
+
+    @foreach (var category in Model.Categories)
+    {
+        var menuItem = Model.MenuItems.Where(m => m.category.Name.Equals(category.Name));
+        @if (menuItem.Count() > 0)
+        {
+            <div class="row">
+                <div class="col-12 @category.Name.Replace(" ",string.Empty) AllCategories">
+                    <div class="row">
+                        <h2 class="text-success">@category.Name</h2>
+                    </div>
+
+                    @foreach (var item in menuItem)
+                    {
+                        <div class="border border-info rounded col-12" style="margin-top:10px;margin-bottom:10px;padding:10px;">
+                            <div class="row">
+
+                                <div class="col-md-3 col-sm-12">
+                                    <img src="@item.Image" style="width:99%;height:200px; border-radius:5px;border:1px solid #bbb999;" alt="@item.Name" />
+                                </div>
+
+                                <div class="col-md-9 col-sm-12">
+
+                                    <div class="row pr-3">
+
+                                        <div class="col-8">
+                                            <h3 class="text-primary">
+                                                @item.Name
+                                                @if (item.Spicyness == "1")
+                                                {<img src="~/Images/mild.png" title="Mild" alt="Mild" />}
+                                                else if (item.Spicyness == "2")
+                                                { <img src="~/Images/spicy.png" title="Spicy" alt="Spicy" />}
+                                                else if (item.Spicyness == "3")
+                                                { <img src="~/Images/veryspicy.png" title="VerySpicy" alt="VerySpicy" />}
+                                            </h3>
+                                        </div>
+
+                                        <div class="col-4 text-right" style="color:maroon;">
+                                            <label style="font-size:18px;">$@item.Price</label>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row col-12 text-justify d-none d-md-block">
+                                        <p>@item.Description</p>
+                                    </div>
+
+                                    <div class="col-md-3 col-sm-12 offset-md-9 text-right" style="position:absolute;bottom:0;right:5px;">
+                                        <a asp-action="Details" class="btn btn-success form-control " asp-route-id="@item.Id">Details</a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="p-4"></div>
+
+        }
+    }
+</div>
+
+<!-- end show menu items -->
+
+@section Scripts{ 
+    <script>
+        $(function () {
+            $("#menu-filter li").on("click", function () {
+                $("#menu-filter li").removeClass("active btn btn-secondary");
+                $(this).addClass("active btn btn-secondary");
+                var selectedFilter = $(this).data("filter");
+                $(".AllCategories").fadeOut();
+                setTimeout(function () {
+                    $(selectedFilter).slideDown();
+                }, 300);
+            });//end click
+        });//end document
+    </script>
+}
