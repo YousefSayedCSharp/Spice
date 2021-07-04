@@ -374,7 +374,6 @@ C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.Raz
 C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\CategoryForm.cshtml.g.cs
 C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Details.cshtml.g.cs
 C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Categories\Index.cshtml.g.cs
-C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Coupons\Create.cshtml.g.cs
 C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Coupons\details.cshtml.g.cs
 C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Coupons\Index.cshtml.g.cs
 C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\MenuItems\Details.cshtml.g.cs
@@ -446,3 +445,4 @@ C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.csp
 C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.dll
 C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.pdb
 C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Spice.genruntimeconfig.cache
+C:\Users\Yousef Sayed\source\repos\Spice\Spice\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Coupons\CouponForm.cshtml.g.cs

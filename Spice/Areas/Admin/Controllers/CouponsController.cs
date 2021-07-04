@@ -19,7 +19,7 @@ namespace Spice.Areas.Admin.Controllers
         {
             _context = context;
         }
-        string CreateEditButtons = "Create";
+        string CreateEditButtons = "CouponForm";
         public async Task<IActionResult> Index()
         {
             //this is view edit and create name
@@ -30,7 +30,9 @@ namespace Spice.Areas.Admin.Controllers
             return View(coupons);
         }
 
-        public async Task<IActionResult> Create(int? id)
+        string frm = "CouponForm";
+        [HttpGet]
+        public async Task<IActionResult> CouponForm(int? id)
         {
             if (id == null)
                 return BadRequest();
@@ -41,15 +43,15 @@ namespace Spice.Areas.Admin.Controllers
                 if (coupon == null)
                     return NotFound();
 
-                return View(coupon);
+                return View(frm, coupon);
             }
-
-            return View(new Coupon { });
+            
+            return View(frm, new Coupon { });
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Coupon model)
+        public async Task<IActionResult> CouponForm(Coupon model)
         {
             if (!ModelState.IsValid)
                 return View(model);
@@ -57,7 +59,7 @@ namespace Spice.Areas.Admin.Controllers
             if(Convert.ToInt32(model.CouponType)<0)
             {
                 ModelState.AddModelError("CouponType","Please Select the coupon type of list!"+model.CouponType);
-                return View(model);
+                return View(frm,model);
             }
 
             var files = HttpContext.Request.Form.Files;

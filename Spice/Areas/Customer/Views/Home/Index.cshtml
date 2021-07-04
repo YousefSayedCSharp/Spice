@@ -42,14 +42,17 @@
 
 <div class="container" style="background-color:white;border:solid 1px #ddd;border-radius:10px;padding:30px;margin-bottom:30px;margin-top:30px;">
 
-    <ul id="menu-filter" class="menu-filter-list list-inline text-center">
-        <li class="active btn btn-secondary ml-1 mr-1" data-filter=".AllCategories">Show All</li>
+    @if (Model.Categories.Count() > 0)
+    {
+        <ul id="menu-filter" class="menu-filter-list list-inline text-center">
+            <li class="active btn btn-secondary ml-1 mr-1" data-filter=".AllCategories">Show All</li>
 
-        @foreach (var category in Model.Categories)
-        {
-            <li class="ml-1 mr-1" data-filter=".@category.Name.Replace(" ",string.Empty)">@category.Name</li>
-        }
-    </ul>
+            @foreach (var category in Model.Categories)
+            {
+                <li class="ml-1 mr-1" data-filter=".@category.Name.Replace(" ",string.Empty)">@category.Name</li>
+            }
+        </ul>
+    }
 
     @foreach (var category in Model.Categories)
     {
@@ -118,7 +121,7 @@
 
 <!-- end show menu items -->
 
-@section Scripts{ 
+@section Scripts{
     <script>
         $(function () {
             $("#menu-filter li").on("click", function () {

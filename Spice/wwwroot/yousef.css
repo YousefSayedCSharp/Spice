@@ -13,5 +13,13 @@
 
     .menu-filter-list li.is-checke, .menu-filter-list li:hover {
         background-color: #545b62;
-        color:#fff;
+        color: #fff;
     }
+
+.whiteBackground {
+    background-color:white;
+    border:solid 1px #ddd;
+    border-radius:10px;
+    padding:30px;
+    margin-bottom:30px;
+}

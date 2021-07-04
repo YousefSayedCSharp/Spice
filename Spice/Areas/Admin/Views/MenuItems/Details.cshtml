@@ -1,11 +1,11 @@
 ﻿@model Spice.Models.MenuItem
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details "+Model.Name+".";
 }
 
-<div class="border" style="background-color:white;border:solid 1px #ddd;border-radius:10px;padding:30px;margin-bottom:30px;">
-    <h1>Details</h1>
+<div class="whiteBackground border">
+    <h1>Details @Model.Name</h1>
 
     <h4>MenuItem</h4>
     <hr />
